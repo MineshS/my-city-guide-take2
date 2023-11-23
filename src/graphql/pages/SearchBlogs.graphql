@@ -1,0 +1,21 @@
+query SearchCities($locale: [Locales] = en, $query:String){
+    City(
+        locale: $locale,
+        orderBy:{
+            Name : ASC
+        },
+        where:{
+            _fulltext : {
+                contains : $query
+            }
+        })
+    {
+        items{
+            RelativePath,
+            Name,
+            IntroText,
+            StartPublish,
+            ImageUrl
+        }
+    }
+}

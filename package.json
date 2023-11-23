@@ -1,0 +1,44 @@
+{
+  "name": "vercel-contentgraph-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate": "graphql-codegen -r dotenv/config --config ./codegen.yaml",
+    "generate-local": "graphql-codegen -r dotenv/config --config ./codegen.yaml dotenv_config_path=./.env.local",
+    "dev": "next dev",
+    "prebuild": "graphql-codegen -r dotenv/config --config ./codegen.yaml",
+    "build": "next build",
+    "build-local": "yarn generate-local && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^3.2.2",
+    "@graphql-codegen/client-preset": "^4.0.1",
+    "@graphql-codegen/introspection": "^4.0.0",
+    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@types/node": "18.15.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@vercel/stega": "^0.0.5",
+    "crypto-js": "^4.1.1",
+    "encoding": "^0.1.13",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "graphql": "^16.6.0",
+    "graphql-request": "^6.1.0",
+    "luxon": "^3.3.0",
+    "next": "^13.4.7",
+    "postcss": "^8.4.21",
+    "query-string": "^8.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.2.7",
+    "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.8.0"
+  }
+}

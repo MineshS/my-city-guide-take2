@@ -1,0 +1,21 @@
+schema: https://cg.optimizely.com/content/v2?auth=${CG_SINGLE_KEY}
+documents: './src/graphql/**/*.graphql'
+generates:
+  ./src/generated/graphql.schema.json:
+    plugins:
+      - introspection
+  ./src/generated/graphql.schema.graphql:
+    plugins:
+      - schema-ast
+  ./src/generated/sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      rawRequest: false
+      inlineFragmentTypes: 'combine'
+      skipTypename: false
+      exportFragmentSpreadSubTypes: true
+      dedupeFragments: true
+      preResolveTypes: true
